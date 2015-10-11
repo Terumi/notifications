@@ -1,11 +1,11 @@
 {
-    "name": "ffy/notifications",
-    "authors": [
-        {
-            "name": "Tasos Protopapas",
-            "email": "tprotopgr@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {}
+  "name": "ffy/notifications",
+  "authors": [
+    {
+      "name": "Tasos Protopapas",
+      "email": "tprotopgr@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {}
 }
