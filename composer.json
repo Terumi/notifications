@@ -1,0 +1,15 @@
+{
+    "name": "ffy/notifications",
+    "description": "A notifications package",
+    "require": {
+        "laravel/framework": "^5.2@dev",
+        "illuminate/support": "^5.2@dev"
+    },
+    "authors": [
+        {
+            "name": "Tasos Protopapas",
+            "email": "tprotopgr@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
