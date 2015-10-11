@@ -3,5 +3,5 @@
 - service provider: ffy\notifications\NotificationServiceProvider::class,
 - alias: 'Notifier' => ffy\notifications\NotificationFacade::class,
 - user model should user the ffy\notifications\Notifiable trait
-
+- run php artisan vendor:publish
 have fun
