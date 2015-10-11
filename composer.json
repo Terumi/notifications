@@ -7,5 +7,6 @@
     }
   ],
   "minimum-stability": "dev",
-  "require": {}
+  "require": {},
+  "version": "dev-master"
 }
