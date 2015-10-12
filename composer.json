@@ -1,13 +1,12 @@
 {
-  "name": "ffy/notifications",
-  "description": "a laravel notification package",
-  "authors": [
-    {
-      "name": "Tasos Protopapas",
-      "email": "tprotopgr@gmail.com"
-    }
-  ],
-  "minimum-stability": "dev",
-  "require": {},
-  "version": "1.0"
+    "name": "ffy/notifications",
+    "description": "A notifications package for Laravel 5.1",
+    "authors": [
+        {
+            "name": "Tasos Protopapas",
+            "email": "tprotopgr@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
 }
