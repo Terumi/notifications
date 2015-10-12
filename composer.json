@@ -1,5 +1,6 @@
 {
   "name": "ffy/notifications",
+  "description": "a laravel notification package",
   "authors": [
     {
       "name": "Tasos Protopapas",
