@@ -1,21 +1,12 @@
 {
     "name": "ffy/notifications",
     "description": "A notifications package for Laravel 5.1",
-    "version": "0.1.1-stable",
     "authors": [
         {
             "name": "Tasos Protopapas",
             "email": "tprotopgr@gmail.com"
         }
     ],
-    "require": {},
-    "minimum-stability": "stable",
-    "replace": {
-        "ffy/notifications": "self.version"
-    },
-    "autoload": {
-        "psr-0": {
-            "ffy\\notifications": "src/"
-        }
-    }
+    "minimum-stability": "dev",
+    "require": {}
 }
