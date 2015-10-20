@@ -13,7 +13,7 @@ class NotificationServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/../views' => base_path('resources/views/ffy/notifications')
-        ], views);
+        ], 'views');
 
 	    $this->publishes([
 		    __DIR__.'/../database/migrations/' => database_path('migrations')
