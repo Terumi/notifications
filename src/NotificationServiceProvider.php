@@ -12,7 +12,7 @@ class NotificationServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../views', 'notifications');
 
         $this->publishes([
-            __DIR__ . '/../views' => base_path('resources/views/ffy/notifications')
+            __DIR__ . '/../views' => base_path('resources/views/vendor/notifications')
         ], 'views');
 
 	    $this->publishes([
