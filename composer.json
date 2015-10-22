@@ -11,7 +11,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "ffy\\notifications\\": "vendor/ffy/notifications/src/"
+            "ffy\\notifications\\": "src/"
         }
     }
 }
