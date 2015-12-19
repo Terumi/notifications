@@ -2,6 +2,7 @@
 
 namespace ffy\notifications;
 
+use ffy\commands\Commands\ClearOldNotifications;
 use Illuminate\Support\ServiceProvider;
 
 class NotificationServiceProvider extends ServiceProvider
@@ -28,6 +29,12 @@ class NotificationServiceProvider extends ServiceProvider
         $this->app->bindShared('notification', function () {
             return $this->app->make('ffy\notifications\NotificationDispatcher');
         });
+
+        $this->app['ffy-notifications.purge-old'] = $this->app->share(function($app) {
+            return new ClearOldNotifications();
+        });
+
+        $this->commands('ffy-notifications.purge-old');
 
         include __DIR__ . '/Http/routes.php';
     }
