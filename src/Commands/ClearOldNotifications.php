@@ -1,6 +1,6 @@
 <?php
 
-namespace ffy\notifications\Commands;
+namespace ffy\notifications;
 
 use Carbon\Carbon;
 use ffy\notifications\Notification;
