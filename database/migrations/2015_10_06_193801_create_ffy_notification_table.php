@@ -16,8 +16,9 @@ class CreateFfyNotificationTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('notification_type');
-            $table->boolean('seen')->default(0);
             $table->string('data')->nullable();
+            $table->boolean('seen')->default(0);
+            $table->timestamp('seen_at')->nullable();
             $table->timestamps();
         });
     }
