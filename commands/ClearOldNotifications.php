@@ -39,10 +39,8 @@ class ClearOldNotifications extends Command
      */
     public function handle()
     {
-
         $days_old = $this->argument('days');
         Notification::where('seen', 1)->where('seen_at', '<', Carbon::today()->subDays($days_old) . 'and')->delete();
         $this->info("Deleted notifications seen at least $days_old days ago.");
-
     }
 }
