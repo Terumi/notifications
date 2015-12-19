@@ -2,6 +2,7 @@
 
 namespace ffy\notifications;
 
+use ffy\notifications\Commands\ClearOldNotifications;
 use Illuminate\Support\ServiceProvider;
 
 class NotificationServiceProvider extends ServiceProvider
