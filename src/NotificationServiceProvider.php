@@ -2,6 +2,7 @@
 
 namespace ffy\notifications;
 
+
 use ffy\notifications\Commands\ClearOldNotifications;
 use Illuminate\Support\ServiceProvider;
 
@@ -11,8 +12,6 @@ class NotificationServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/../views', 'notifications');
-
-        $this->commands(['ClearOldNotifications']);
 
         $this->publishes([
             __DIR__ . '/../views' => base_path('resources/views/vendor/notifications')
