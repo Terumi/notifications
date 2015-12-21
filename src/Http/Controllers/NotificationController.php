@@ -32,6 +32,5 @@ class NotificationController extends Controller
         $notification->seen = 0;
         $notification->save();
         return "ok";
-
     }
 }
