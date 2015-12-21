@@ -14,7 +14,6 @@ class NotificationController extends Controller
         // delete this
         Auth::loginUsingId(1);
         // delete this
-        // test
         $user = Auth::user();
         return view('notifications::index')->with('notifications', $user->notifications);
     }
