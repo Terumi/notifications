@@ -1,5 +1,8 @@
 <?php
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+
 Route::get('notifications', 'ffy\notifications\Http\Controllers\NotificationController@index');
 Route::get('notifications/create', function () {
     echo 'creating notification';
