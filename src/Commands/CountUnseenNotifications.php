@@ -40,7 +40,7 @@ class CountUnseenNotifications extends Command
     public function handle()
     {
         $days_old = $this->argument('days');
-        $count = Notification::where('seen', 0)->where('created_at', '>=', Carbon::today()->subDays($days_old) . 'and')->count;
+        $count = Notification::where('seen', 0)->where('created_at', '>=', Carbon::today()->subDays($days_old) . 'and')->count();
         $this->info("There are $count unseen notifications in db created the last $days_old days.");
     }
 }
