@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Notification extends Model
 {
     protected $table = 'ffy_notifications';
-    protected $fillable = ['user_id', 'notification_type', 'seen', 'data'];
+    protected $fillable = ['user_id', 'notification_type', 'seen', 'data', 'url'];
 
     public function getDataAttribute()
     {

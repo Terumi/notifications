@@ -7,11 +7,15 @@ Route::group(["prefix" => 'notifications'], function () {
     Route::get('/', 'ffy\notifications\Http\Controllers\NotificationController@index');
     Route::get('create', function () {
         echo 'creating notification';
-        $notification = Notifier::notify(1, 1, ['name' => 'Nikos', 'val' => rand(1, 1000)]);
-        $notification->url = 'some_url_' . rand(0, 1000);
+
+        $data = ['name' => 'Nikos', 'val' => rand(1, 1000)];
+        $rand_url = 'some_url_' . rand(0, 1000);
         $seen = rand(0, 1);
-        if ($seen == 1) {
-            $notification->seen = 1;
+        $user_id = 1;
+
+        $notification = Notifier::notify($user_id, $seen, $data, $rand_url);
+
+        if ($seen) {
             $notification->seen_at = Carbon::today()->subDays(rand(1, 400));
             $notification->save();
         }
