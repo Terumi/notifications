@@ -2,7 +2,6 @@
 
 namespace ffy\notifications;
 
-
 use ffy\notifications\Commands\ClearOldNotifications;
 use ffy\notifications\Commands\CountUnseenNotifications;
 use Illuminate\Support\ServiceProvider;
