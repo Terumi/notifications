@@ -4,7 +4,6 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 Route::group(["prefix" => 'notifications'], function () {
-    Route::get('/', 'ffy\notifications\Http\Controllers\NotificationController@index');
     Route::get('create', function () {
         echo 'creating notification';
 
@@ -22,6 +21,9 @@ Route::group(["prefix" => 'notifications'], function () {
         echo "<br>done!";
     });
 
+
+    Route::get('/', 'ffy\notifications\Http\Controllers\NotificationController@index');
+
     Route::get('view', function () {
         Auth::loginUsingId(1);
         $notifications = Auth::user()->notifications;
@@ -30,7 +32,9 @@ Route::group(["prefix" => 'notifications'], function () {
     });
 
     Route::get('follow/{id}', 'ffy\notifications\Http\Controllers\NotificationController@follow');
+
     Route::get('see/{id}', 'ffy\notifications\Http\Controllers\NotificationController@see');
+
     Route::get('unsee/{id}', 'ffy\notifications\Http\Controllers\NotificationController@unsee');
 });
 

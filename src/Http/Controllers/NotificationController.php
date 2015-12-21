@@ -1,7 +1,7 @@
 <?php
 
 namespace ffy\notifications\Http\Controllers;
-
+use ffy\notifications\Http\Requests\NotificationRequest;
 use ffy\notifications\Notification;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -19,21 +19,21 @@ class NotificationController extends Controller
         return view('notifications::index')->with('notifications', $user->notifications);
     }
 
-    public function follow($id)
+    public function follow(NotificationRequest $request, $id)
     {
         $notification = Notification::find($id);
         $notification->see();
         return Redirect::to($notification->url);
     }
 
-    public function see($id)
+    public function see(NotificationRequest $request, $id)
     {
         $notification = Notification::find($id);
         $notification->see();
         return "ok";
     }
 
-    public function unsee($id)
+    public function unsee(NotificationRequest $request, $id)
     {
         $notification = Notification::find($id);
         $notification->unsee();
