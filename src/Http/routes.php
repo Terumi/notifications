@@ -8,7 +8,7 @@ Route::group(["prefix" => 'notifications'], function () {
     Route::get('create', function () {
         echo 'creating notification';
         $notification = Notifier::notify(1, 1, ['name' => 'Nikos', 'val' => rand(1, 1000)]);
-
+        $notification->url = 'some_url_' . rand(0, 1000);
         $seen = rand(0, 1);
         if ($seen == 1) {
             $notification->seen = 1;
@@ -25,6 +25,7 @@ Route::group(["prefix" => 'notifications'], function () {
         return view('notifications::index')->with('notifications', $notifications);
     });
 
+    Route::get('follow/{id}', 'ffy\notifications\Http\Controllers\NotificationController@follow');
     Route::get('see/{id}', 'ffy\notifications\Http\Controllers\NotificationController@see');
     Route::get('unsee/{id}', 'ffy\notifications\Http\Controllers\NotificationController@unsee');
 });

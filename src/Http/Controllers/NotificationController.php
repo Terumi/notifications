@@ -6,6 +6,7 @@ use ffy\notifications\Notification;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class NotificationController extends Controller
 {
@@ -18,19 +19,24 @@ class NotificationController extends Controller
         return view('notifications::index')->with('notifications', $user->notifications);
     }
 
+    public function follow($id)
+    {
+        $notification = Notification::find($id);
+        $notification->see();
+        return Redirect::to($notification->url);
+    }
+
     public function see($id)
     {
         $notification = Notification::find($id);
-        $notification->seen = 1;
-        $notification->save();
+        $notification->see();
         return "ok";
     }
 
     public function unsee($id)
     {
         $notification = Notification::find($id);
-        $notification->seen = 0;
-        $notification->save();
+        $notification->unsee();
         return "ok";
     }
 }

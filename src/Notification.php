@@ -14,4 +14,14 @@ class Notification extends Model
         return json_decode($this->attributes['data']);
     }
 
+    public function see()
+    {
+        return $this->setAttribute('seen', 1)->save();
+    }
+
+    public function unsee()
+    {
+        return $this->setAttribute('seen', 0)->save();
+    }
+
 }
