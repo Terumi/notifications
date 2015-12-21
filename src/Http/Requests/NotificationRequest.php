@@ -14,7 +14,6 @@ class NotificationRequest extends Request
      */
     public function authorize()
     {
-        return false;
         $notification = Notification::find($this->route()->parameter('id'));
         return $this->user()->id == $notification->user_id;
     }
