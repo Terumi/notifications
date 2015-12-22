@@ -1,6 +1,7 @@
 <?php
 
 namespace ffy\notifications\Http\Controllers;
+
 use ffy\notifications\Http\Requests\NotificationRequest;
 use ffy\notifications\Notification;
 use App\Http\Requests;
@@ -16,7 +17,13 @@ class NotificationController extends Controller
         Auth::loginUsingId(1);
 
         $user = Auth::user();
-        return view('notifications::index')->with('notifications', $user->notifications);
+
+        $normal_notifications = $user->notifications()->where('notification_type', 0);
+        $forced_notifications = $user->notifications()->where('notification_type', 1);
+
+        return view('notifications::index')
+            ->with('notifications', $normal_notifications)
+            ->with('forced_notifications', $forced_notifications);
     }
 
     public function follow(NotificationRequest $request, $id)
