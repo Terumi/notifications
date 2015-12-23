@@ -13,9 +13,6 @@ class NotificationController extends Controller
 {
     public function index()
     {
-        /** delete this **/
-        Auth::loginUsingId(1);
-
 
         $user = Auth::user();
         $normal_notifications = $user->notifications()
@@ -23,6 +20,7 @@ class NotificationController extends Controller
             ->get();
         $forced_notifications = $user->notifications()
             ->where('notification_type', 1)
+            ->where('seen', 0, 'and')
             ->get();
 
         return view('notifications::index')
