@@ -2,6 +2,7 @@
 
 namespace ffy\notifications;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Notification extends Model
@@ -16,12 +17,16 @@ class Notification extends Model
 
     public function see()
     {
-        return $this->setAttribute('seen', 1)->save();
+        return $this->setAttribute('seen', 1)
+            ->setAttribute('seen_at', Carbon::now())
+            ->save();
     }
 
     public function unsee()
     {
-        return $this->setAttribute('seen', 0)->save();
+        return $this->setAttribute('seen', 0)->save()
+            ->setAttribute('seen_at', null)
+            ->save();
     }
 
 }
