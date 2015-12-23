@@ -16,10 +16,14 @@ class NotificationController extends Controller
         /** delete this **/
         Auth::loginUsingId(1);
 
-        $user = Auth::user();
 
-        $normal_notifications = $user->notifications()->where('notification_type', 0);
-        $forced_notifications = $user->notifications()->where('notification_type', 1);
+        $user = Auth::user();
+        $normal_notifications = $user->notifications()
+            ->where('notification_type', 0)
+            ->get();
+        $forced_notifications = $user->notifications()
+            ->where('notification_type', 1)
+            ->get();
 
         return view('notifications::index')
             ->with('notifications', $normal_notifications)
@@ -30,7 +34,10 @@ class NotificationController extends Controller
     {
         $notification = Notification::find($id);
         $notification->see();
-        return Redirect::to($notification->url);
+        if ($notification->url)
+            return Redirect::to($notification->url);
+        else
+            return Redirect::back();
     }
 
     public function see(NotificationRequest $request, $id)

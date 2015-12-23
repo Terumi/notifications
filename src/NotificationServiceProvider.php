@@ -17,9 +17,13 @@ class NotificationServiceProvider extends ServiceProvider
             __DIR__ . '/../views' => base_path('resources/views/vendor/notifications')
         ], 'views');
 
-	    $this->publishes([
-		    __DIR__.'/../database/migrations/' => database_path('migrations')
-	    ], 'migrations');
+        $this->publishes([
+            __DIR__ . '/../js' => base_path('public/js')
+        ], 'javascript');
+
+        $this->publishes([
+            __DIR__ . '/../database/migrations/' => database_path('migrations')
+        ], 'migrations');
     }
 
     public function register()
@@ -31,11 +35,11 @@ class NotificationServiceProvider extends ServiceProvider
 
         //register commands
 
-        $this->app['ffy-notifications.purge-old'] = $this->app->share(function($app) {
+        $this->app['ffy-notifications.purge-old'] = $this->app->share(function ($app) {
             return new ClearOldNotifications();
         });
 
-        $this->app['ffy-notifications.count-unseen'] = $this->app->share(function($app) {
+        $this->app['ffy-notifications.count-unseen'] = $this->app->share(function ($app) {
             return new CountUnseenNotifications();
         });
 
