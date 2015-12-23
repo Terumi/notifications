@@ -17,16 +17,16 @@ class Notification extends Model
 
     public function see()
     {
-        return $this->setAttribute('seen', 1)
-            ->setAttribute('seen_at', Carbon::now())
-            ->save();
+        $this->setAttribute('seen', 1);
+        $this->setAttribute('seen_at', Carbon::now());
+        $this->save();
     }
 
     public function unsee()
     {
-        return $this->setAttribute('seen', 0)->save()
-            ->setAttribute('seen_at', null)
-            ->save();
+        return $this->setAttribute('seen', 0);
+        $this->setAttribute('seen_at', null);
+        $this->save();
     }
 
 }
