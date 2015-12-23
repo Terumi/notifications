@@ -19,14 +19,13 @@ class Notification extends Model
     {
         $this->setAttribute('seen', 1);
         $this->setAttribute('seen_at', Carbon::now());
-        $this->save();
+        return $this->save();
     }
 
     public function unsee()
     {
-        return $this->setAttribute('seen', 0);
+        $this->setAttribute('seen', 0);
         $this->setAttribute('seen_at', null);
-        $this->save();
+        return $this->save();
     }
-
 }
